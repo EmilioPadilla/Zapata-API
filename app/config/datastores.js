@@ -50,7 +50,8 @@ module.exports.datastores = {
     ***************************************************************************/
     // adapter: 'sails-mysql',
     // url: 'mysql://user:password@host:port/database',
-
+    adapter: 'sails-postgresql',
+    url: 'postgresql://localhost:1234@host:5432/zapata_database',
   },
 
 
