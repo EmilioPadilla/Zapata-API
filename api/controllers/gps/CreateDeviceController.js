@@ -1,5 +1,3 @@
-const Device = require('../../models/Device');
-
 module.exports = {
   create: function (req, res) {
     sails.log.debug(req.allParams());
