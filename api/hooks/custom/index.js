@@ -170,7 +170,7 @@ will be disabled and/or hidden in the UI.
             // Not logged in? Proceed as usual.
             if (!req.session.userId) { return next(); }
 
-            // Otherwise, look up the logged-in user.
+            // Otherwise, look up the logged-in User.
             var loggedInUser = await User.findOne({
               id: req.session.userId
             });

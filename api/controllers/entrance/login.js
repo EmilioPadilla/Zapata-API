@@ -26,14 +26,6 @@ password attempt.`,
       description: 'The unencrypted password to try in this attempt, e.g. "passwordlol".',
       type: 'string',
       required: true
-    },
-
-    rememberMe: {
-      description: 'Whether to extend the lifetime of the user\'s session.',
-      extendedDescription:
-`Note that this is NOT SUPPORTED when using virtual requests (e.g. sending
-requests over WebSockets instead of HTTP).`,
-      type: 'boolean'
     }
 
   },
@@ -69,7 +61,7 @@ and exposed as \`req.me\`.)`
   },
 
 
-  fn: async function ({emailAddress, password, rememberMe}) {
+  fn: async function ({emailAddress, password}) {
 
     // Look up by the email address.
     // (note that we lowercase it to ensure the lookup is always case-insensitive,
@@ -86,23 +78,6 @@ and exposed as \`req.me\`.)`
     // If the password doesn't match, then also exit thru "badCombo".
     await sails.helpers.passwords.checkPassword(password, userRecord.password)
     .intercept('incorrect', 'badCombo');
-
-    // If "Remember Me" was enabled, then keep the session alive for
-    // a longer amount of time.  (This causes an updated "Set Cookie"
-    // response header to be sent as the result of this request -- thus
-    // we must be dealing with a traditional HTTP request in order for
-    // this to work.)
-    if (rememberMe) {
-      if (this.req.isSocket) {
-        sails.log.warn(
-          'Received `rememberMe: true` from a virtual request, but it was ignored\n'+
-          'because a browser\'s session cookie cannot be reset over sockets.\n'+
-          'Please use a traditional HTTP request instead.'
-        );
-      } else {
-        this.req.session.cookie.maxAge = sails.config.custom.rememberMeCookieMaxAge;
-      }
-    }//ﬁ
 
     // Modify the active session instance.
     // (This will be persisted when the response is sent.)
