@@ -16,10 +16,10 @@ module.exports = {
       required: false,
       unique: true,
       autoIncrement: true,
-      example: 'mary.sue@example.com'
+      example: '1'
     },
 
-    fullName: {
+    full_name: {
       type: 'string',
       required: true,
       description: 'Full representation of the user\'s name.',
@@ -27,7 +27,7 @@ module.exports = {
       example: 'Mary Sue van der McHenst'
     },
 
-    emailAddress: {
+    email_address: {
       type: 'string',
       required: true,
       unique: true,
@@ -41,7 +41,7 @@ module.exports = {
       required: false,
       unique: true,
       maxLength: 200,
-      example: 'mary.sue@example.com'
+      example: '7721323273'
     },
 
     password: {
@@ -52,16 +52,12 @@ module.exports = {
       example: '2$28a8eabna301089103-13948134nad'
     },
 
-    id_sucursal: {
-      type: 'number',
-      required: false,
-      example: ''
+    id_office: {
+      model:'office'
     },
 
-    id_rol: {
-      type: 'number',
-      required: false,
-      example: ''
+    id_role: {
+      model:'role'
     },
   },
 };
