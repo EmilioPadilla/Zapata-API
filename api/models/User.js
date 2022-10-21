@@ -52,13 +52,13 @@ module.exports = {
       example: '2$28a8eabna301089103-13948134nad'
     },
 
-    id_sucursal: {
+    id_office: {
       type: 'number',
       required: false,
       example: ''
     },
 
-    id_rol: {
+    id_role: {
       type: 'number',
       required: false,
       example: ''
