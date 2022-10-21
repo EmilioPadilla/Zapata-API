@@ -11,7 +11,19 @@
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
+      id:{
+        type: 'number',
+        required: false,
+        unique: true,
+        autoIncrement: true,
+        example: '1'
+      },
+      nombre:{
+        type: 'string',
+        required: false,
+        unique: true,
+        example: 'Rotación de balatas'
+      },
     },
   };
   

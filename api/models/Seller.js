@@ -11,7 +11,14 @@
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
+      id_employee:{
+        type: 'number',
+        required: true,
+        unique: true,
+        autoIncrement: true,
+        example: '1'
+      },
+      
     },
   };
   

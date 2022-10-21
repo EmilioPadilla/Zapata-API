@@ -11,7 +11,13 @@
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
+      id:{
+        type: 'number',
+        required: false,
+        unique: true,
+        autoIncrement: true,
+        example: '1'
+      },
     },
   };
   
