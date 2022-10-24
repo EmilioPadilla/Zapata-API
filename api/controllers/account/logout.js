@@ -17,7 +17,7 @@ Note that this action does not check to see whether or not the requesting user w
 actually logged in.  (If they weren't, then this action is just a no-op.)`,
 
 
-  exits: {
+  exits: { 
 
     success: {
       description: 'The requesting user agent has been successfully logged out.'

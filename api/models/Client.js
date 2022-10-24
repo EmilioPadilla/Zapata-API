@@ -4,7 +4,7 @@
  * A user who can log in to this application.
  */
 
- module.exports = {
+module.exports = {
 
     attributes: {
       id:{
@@ -52,5 +52,5 @@
         model:'car'
       }
     },
-  };
-  
+};
+
