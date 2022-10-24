@@ -7,13 +7,20 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
       id_user:{
-        model:'user'
-      }
+        collection:'user',
+        via:'employees'
+      },
+
     },
   };
   

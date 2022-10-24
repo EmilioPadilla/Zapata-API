@@ -7,23 +7,25 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      id:{
-        type: 'number',
-        required: false,
-        unique: true,
-        autoIncrement: true,
-        example: '1'
-      },
+
       alias:{
         type: 'string',
         required: true,
         unique: true,
         example: 'adsfasdfadsfasd'
       },
+      cars:{
+        model:'car'
+      }
     },
   };
   

@@ -7,17 +7,16 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      id:{
-        type: 'number',
-        required: false,
-        unique: true,
-        autoIncrement: true,
-        example: '1'
-      },
+
       name:{
         type: 'string',
         required: true,
@@ -29,6 +28,11 @@
         required: true,
         example: 'Se le otroga al usuario el permiso de editar usuario'
       },
+      id_role:{
+        collection:'role',
+        via:'id_permit',
+        through: 'rolehaspermit'
+      }
     },
   };
   

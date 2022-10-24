@@ -7,24 +7,25 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      id:{
-        type: 'number',
-        required: false,
-        unique: true,
-        autoIncrement: true,
-        example: '1'
-      },
       name:{
         type: 'string',
-        required: true,
         unique: true,
+        required: true,
         example: 'Mazda'
       },
-      
+      model:{
+        collection:'Model',
+        via:'id_brand'
+      }
     },
   };
   

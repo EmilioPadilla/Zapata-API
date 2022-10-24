@@ -7,13 +7,23 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+      id_user:{
+        collection:'user',
+        via:'clients'
+      },	
+
       date_of_birth:{
         type: 'number',
-        required: false,
+        required: true,
         unique: true,
         autoIncrement: true,
         example: '1'
@@ -34,13 +44,13 @@
       },			
 			
       id_seller:{
-        model:'seller'
-      },			
+        collection: 'seller',
+        via: 'clients'
+      },					
 			
-      id_user:{
-        model:'user'
-      },			
-			
+      cars:{
+        model:'car'
+      }
     },
   };
   

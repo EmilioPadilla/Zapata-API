@@ -4,21 +4,20 @@
  * A user who can log in to this application.
  */
 
+const Employee = require("./Employee");
+
 module.exports = {
 
   attributes: {
+    id:{
+      type: 'number',
 
+        autoIncrement: true,
+        example: '1'
+      },
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    id: {
-      type: 'number',
-      required: false,
-      unique: true,
-      autoIncrement: true,
-      example: '1'
-    },
-
     full_name: {
       type: 'string',
       required: true,
@@ -39,7 +38,7 @@ module.exports = {
     telephone: {
       type: 'string',
       required: false,
-      unique: true,
+      unique: false,
       maxLength: 200,
       example: '7721323273'
     },
@@ -53,11 +52,19 @@ module.exports = {
     },
 
     id_office: {
-      model:'office'
+      collection:'office',
+      via:'users'
     },
 
     id_role: {
-      model:'role'
+      collection:'role',
+      via:'users'
     },
+    clients:{
+      model:'client'
+    },
+    employees:{
+      model:'employee'
+    }
   },
 };
