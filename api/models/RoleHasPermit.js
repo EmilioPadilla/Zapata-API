@@ -7,15 +7,22 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
       id_role:{
-        model: 'role'
+        model: 'role',
+        //required: 'true'
       },
       id_permit:{
-        model: 'permit'
+        model: 'permit',
+        //required: 'true'
       },
       creation_date:{
         type: 'number',

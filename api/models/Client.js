@@ -6,41 +6,51 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
+      id:{
+        type: 'number',
 
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    date_of_birth:{
-      type: 'number',
-      required: false,
-      unique: true,
-      autoIncrement: true,
-      example: '1'
+          autoIncrement: true,
+          example: '1'
+        },
+      //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
+      //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
+      //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+      id_user:{
+        collection:'user',
+        via:'clients'
+      },	
+
+      date_of_birth:{
+        type: 'number',
+        required: true,
+        unique: true,
+        autoIncrement: true,
+        example: '1'
+      },
+			
+      direction:{
+        type: 'string',
+        required: false,
+        unique: false,
+        example: 'Psicometria 113,colonia tencnologico'
+      },			
+			
+      license_validity:{
+        type: 'string',
+        required: false,
+        unique: false,
+        example: 'Mazda Qro'
+      },			
+			
+      id_seller:{
+        collection: 'seller',
+        via: 'clients'
+      },					
+			
+      cars:{
+        model:'car'
+      }
     },
-    
-    direction:{
-      type: 'string',
-      required: false,
-      unique: false,
-      example: 'Psicometria 113,colonia tencnologico'
-    },			
-    
-    license_validity:{
-      type: 'string',
-      required: false,
-      unique: false,
-      example: 'Mazda Qro'
-    },			
-    
-    id_seller:{
-      model:'seller'
-    },			
-    
-    id_user:{
-      model:'user'
-    },			
-    
-  },
 };
 

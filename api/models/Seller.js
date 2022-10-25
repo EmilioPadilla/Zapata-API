@@ -4,21 +4,26 @@
  * A user who can log in to this application.
  */
 
+const Employee = require("./Employee");
+
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      id_employee:{
-        type: 'number',
-        required: true,
-        unique: true,
-        autoIncrement: true,
-        example: '1'
+      id_seller:{
+        model:'employee'
       },
-      
+      clients:{
+        model:'client'
+      }
     },
   };
   
