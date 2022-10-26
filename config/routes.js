@@ -25,5 +25,6 @@ module.exports.routes = {
   'POST  /api/v1/observe-my-session':                 { action: 'observe-my-session', hasSocketFeatures: true },
   'GET    /api/v1/gps':                                     { action:'gps/GetDevice/get' },
   'POST   /api/v1/gps':                                    { action:'gps/CreateDevice/create' },
+  'GET /api/v1/car/get-car-info/:id':                     { action:'cars/get-car-info'},
 
 };
