@@ -14,6 +14,12 @@
  */
 
 module.exports.models = {
+      /*  id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
   /***************************************************************************
    *                                                                          *
    * Whether model methods like `.create()` and `.update()` should ignore     *
@@ -50,8 +56,8 @@ module.exports.models = {
    *                                                                          *
    ***************************************************************************/
 
-  migrate: "drop", // COMPLETELY DROPS DATABASE EVERY TIME IT IS BOOTSRAPPED, CHANGING MODELS AND DELETING VALUES CONTAINED
-  // migrate: "alter", // MODIFIES DATABASE DEPENDING ON THE MODELS DEFINED
+  //migrate: "safe", // COMPLETELY DROPS DATABASE EVERY TIME IT IS BOOTSRAPPED, CHANGING MODELS AND DELETING VALUES CONTAINED
+   migrate: "alter", // MODIFIES DATABASE DEPENDING ON THE MODELS DEFINED
   // migrate: "safe", // DOESN'T MODIFY DATABASE
 
   /***************************************************************************

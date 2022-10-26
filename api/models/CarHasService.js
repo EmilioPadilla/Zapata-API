@@ -7,16 +7,22 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
       id_car:{
-        model: 'car'
+        model: 'car',
+        //required:'true'
       },			
 			
       id_service:{
-        model: 'service'
+        model: 'service',
+        //required: 'true'
       },		
 			
     },

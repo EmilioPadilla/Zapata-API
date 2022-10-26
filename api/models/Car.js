@@ -7,18 +7,15 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      id:{
-        type: 'number',
-        required: false,
-        unique: true,
-        autoIncrement: true,
-        example: '1'
-      },			
-			
       start_kilometers:{
         type: 'number',
         required: true,
@@ -83,13 +80,19 @@
       },		
                   
       id_gps:{
-        model: 'gps'
+        collection:'gps',
+        via:'cars'
       },			
                   
       id_client:{
-        model:'client'
+        collection:'client',
+        via:'cars'
       },		
-                  
+      services:{
+        collection:'service',
+        via:'id_car',
+        through: 'carhasservice'
+      }     
     },
   };
   

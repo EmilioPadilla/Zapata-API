@@ -7,23 +7,26 @@
  module.exports = {
 
     attributes: {
-  
+      id:{
+        type: 'number',
+
+          autoIncrement: true,
+          example: '1'
+        },
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      id:{
-        type: 'number',
-        required: false,
-        unique: true,
-        autoIncrement: true,
-        example: '1'
-      },
       nombre:{
         type: 'string',
-        required: false,
+        required: true,
         unique: true,
         example: 'Rotación de balatas'
       },
+      id_service:{
+        collection:'service',
+        via:'id_type',
+        through:'servicehastype'
+      }
     },
   };
   

@@ -45,9 +45,11 @@ module.exports.datastores = {
      *    (See https://sailsjs.com/config/datastores for help.)                 *
      *                                                                          *
      ***************************************************************************/
-    adapter: "sails-postgresql",
-    //url: "postgresql://postgres:diuASDasdasdjnjSA@54.208.219.250:5432/zapata_database" // QA environment: uncomment when testing publishing in production else DON'T
+
+    //adapter: "sails-postgresql",
+    // url: "postgresql://postgres:diuASDasdasdjnjSA@54.208.219.250:5432/zapata_database" // QA environment: uncomment when testing publishing in production else DON'T
     // DEVELOP IN LOCAL WITH BELOW URL
-    url: "postgresql://Emirock:@localhost/zapata_database", // TYpe your own local DB postgresql://userDb:pwdDb@localhost/zapata_database
+    //url: "postgresql://postgres:1234@localhost/zapata_database",
+
   },
 };
