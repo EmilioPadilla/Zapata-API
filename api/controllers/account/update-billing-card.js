@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Update billing card',
 
 
-  description: 'Update the credit card for the logged-in user.',
+  description: 'Update the credit card for the logged-in User.',
 
 
   inputs: {

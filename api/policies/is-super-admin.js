@@ -10,7 +10,7 @@
  */
 module.exports = async function (req, res, proceed) {
 
-  // First, check whether the request comes from a logged-in user.
+  // First, check whether the request comes from a logged-in User.
   // > For more about where `req.me` comes from, check out this app's
   // > custom hook (`api/hooks/custom/index.js`).
   if (!req.me) {

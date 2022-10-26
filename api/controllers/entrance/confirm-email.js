@@ -57,11 +57,11 @@ then redirect to either a special landing page (for newly-signed up users), or t
     var user = await User.findOne({ emailProofToken: token });
 
     // If no such user exists, or their token is expired, bail.
-    if (!user || user.emailProofTokenExpiresAt <= Date.now()) {
+    if (!user || User.emailProofTokenExpiresAt <= Date.now()) {
       throw 'invalidOrExpiredToken';
     }
 
-    if (user.emailStatus === 'unconfirmed') {
+    if (User.emailStatus === 'unconfirmed') {
       //  ┌─┐┌─┐┌┐┌┌─┐┬┬─┐┌┬┐┬┌┐┌┌─┐  ╔═╗╦╦═╗╔═╗╔╦╗ ╔╦╗╦╔╦╗╔═╗  ╦ ╦╔═╗╔═╗╦═╗  ┌─┐┌┬┐┌─┐┬┬
       //  │  │ ││││├┤ │├┬┘││││││││ ┬  ╠╣ ║╠╦╝╚═╗ ║───║ ║║║║║╣   ║ ║╚═╗║╣ ╠╦╝  ├┤ │││├─┤││
       //  └─┘└─┘┘└┘└  ┴┴└─┴ ┴┴┘└┘└─┘  ╚  ╩╩╚═╚═╝ ╩   ╩ ╩╩ ╩╚═╝  ╚═╝╚═╝╚═╝╩╚═  └─┘┴ ┴┴ ┴┴┴─┘
@@ -69,12 +69,12 @@ then redirect to either a special landing page (for newly-signed up users), or t
       // then just update the state of their user record in the database,
       // store their user id in the session (just in case they aren't logged
       // in already), and then redirect them to the "email confirmed" page.
-      await User.updateOne({ id: user.id }).set({
+      await User.updateOne({ id: User.id }).set({
         emailStatus: 'confirmed',
         emailProofToken: '',
         emailProofTokenExpiresAt: 0
       });
-      this.req.session.userId = user.id;
+      this.req.session.userId = User.id;
 
       // In case there was an existing session, broadcast a message that we can
       // display in other open tabs.
@@ -88,12 +88,12 @@ then redirect to either a special landing page (for newly-signed up users), or t
         throw { redirect: '/email/confirmed' };
       }
 
-    } else if (user.emailStatus === 'change-requested') {
+    } else if (User.emailStatus === 'change-requested') {
       //  ┌─┐┌─┐┌┐┌┌─┐┬┬─┐┌┬┐┬┌┐┌┌─┐  ╔═╗╦ ╦╔═╗╔╗╔╔═╗╔═╗╔╦╗  ┌─┐┌┬┐┌─┐┬┬
       //  │  │ ││││├┤ │├┬┘││││││││ ┬  ║  ╠═╣╠═╣║║║║ ╦║╣  ║║  ├┤ │││├─┤││
       //  └─┘└─┘┘└┘└  ┴┴└─┴ ┴┴┘└┘└─┘  ╚═╝╩ ╩╩ ╩╝╚╝╚═╝╚═╝═╩╝  └─┘┴ ┴┴ ┴┴┴─┘
-      if (!user.emailChangeCandidate){
-        throw new Error(`Consistency violation: Could not update Stripe customer because this user record's emailChangeCandidate ("${user.emailChangeCandidate}") is missing.  (This should never happen.)`);
+      if (!User.emailChangeCandidate){
+        throw new Error(`Consistency violation: Could not update Stripe customer because this user record's emailChangeCandidate ("${User.emailChangeCandidate}") is missing.  (This should never happen.)`);
       }
 
       // Last line of defense: since email change candidates are not protected
@@ -101,7 +101,7 @@ then redirect to either a special landing page (for newly-signed up users), or t
       // sure no one else managed to grab this email in the mean time since we
       // last checked its availability. (This is a relatively rare edge case--
       // see exit description.)
-      if (await User.count({ emailAddress: user.emailChangeCandidate }) > 0) {
+      if (await User.count({ emailAddress: User.emailChangeCandidate }) > 0) {
         throw 'emailAddressNoLongerAvailable';
       }
 
@@ -113,13 +113,13 @@ then redirect to either a special landing page (for newly-signed up users), or t
       // > database.  (This could happen if Stripe credentials were not configured
       // > at the time this user was originally created.)
       if(sails.config.custom.enableBillingFeatures) {
-        let didNotAlreadyHaveCustomerId = (! user.stripeCustomerId);
+        let didNotAlreadyHaveCustomerId = (! User.stripeCustomerId);
         let stripeCustomerId = await sails.helpers.stripe.saveBillingInfo.with({
-          stripeCustomerId: user.stripeCustomerId,
-          emailAddress: user.emailChangeCandidate
+          stripeCustomerId: User.stripeCustomerId,
+          emailAddress: User.emailChangeCandidate
         }).timeout(5000).retry();
         if (didNotAlreadyHaveCustomerId){
-          await User.updateOne({ id: user.id }).set({
+          await User.updateOne({ id: User.id }).set({
             stripeCustomerId
           });
         }
@@ -128,15 +128,15 @@ then redirect to either a special landing page (for newly-signed up users), or t
       // Finally update the user in the database, store their id in the session
       // (just in case they aren't logged in already), then redirect them to
       // their "my account" page so they can see their updated email address.
-      await User.updateOne({ id: user.id })
+      await User.updateOne({ id: User.id })
       .set({
         emailStatus: 'confirmed',
         emailProofToken: '',
         emailProofTokenExpiresAt: 0,
-        emailAddress: user.emailChangeCandidate,
+        emailAddress: User.emailChangeCandidate,
         emailChangeCandidate: '',
       });
-      this.req.session.userId = user.id;
+      this.req.session.userId = User.id;
 
       // In case there was an existing session, broadcast a message that we can
       // display in other open tabs.
@@ -151,7 +151,7 @@ then redirect to either a special landing page (for newly-signed up users), or t
       }
 
     } else {
-      throw new Error(`Consistency violation: User ${user.id} has an email proof token, but somehow also has an emailStatus of "${user.emailStatus}"!  (This should never happen.)`);
+      throw new Error(`Consistency violation: User ${User.id} has an email proof token, but somehow also has an emailStatus of "${User.emailStatus}"!  (This should never happen.)`);
     }
 
   }

@@ -30,7 +30,7 @@ module.exports = {
 
   fn: async function ({emailAddress}) {
 
-    // Find the record for this user.
+    // Find the record for this User.
     // (Even if no such user exists, pretend it worked to discourage sniffing.)
     var userRecord = await User.findOne({ emailAddress });
     if (!userRecord) {
