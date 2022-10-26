@@ -23,7 +23,7 @@ module.exports.routes = {
   'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email' },
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/observe-my-session':                 { action: 'observe-my-session', hasSocketFeatures: true },
-  'GET    /api/v1/gps':                                     { action:'gps/GetDevice/get' },
   'POST   /api/v1/gps/api/gps':                                    { action:'gps/CreateDevice/create' },
+  'GET /api/v1/car/get-car-info/:id':                     { action:'cars/get-car-info'},
 
 };
