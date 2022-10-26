@@ -12,7 +12,7 @@ until they confirm they are using a legitimate email address (by clicking the li
 the account verification message.)`,
 
   inputs: {
-    emailAddress: {
+    email_address: {
       required: true,
       type: "string",
       isEmail: true,
@@ -60,8 +60,8 @@ the account verification message.)`,
     },
   },
 
-  fn: async function ({ emailAddress, password, fullName, telephone }) {
-    var newEmailAddress = emailAddress.toLowerCase();
+  fn: async function ({ email_address, password, fullName, telephone }) {
+    var newEmailAddress = email_address.toLowerCase();
 
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)
@@ -69,7 +69,7 @@ the account verification message.)`,
       _.extend(
         {
           fullName,
-          emailAddress: newEmailAddress,
+          email_address: newEmailAddress,
           password: await sails.helpers.passwords.hashPassword(password),
           telephone,
           // tosAcceptedByIp: this.req.ip,
