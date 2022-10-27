@@ -1,7 +1,6 @@
 module.exports = {
   create: function (req, res) {
     sails.log.debug(req.allParams());
-    sails.log.debug(req.allParams());
     Device.create(req.allParams())
       .then((dispositivos) => {
         return res.send({

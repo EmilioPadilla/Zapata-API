@@ -26,7 +26,7 @@ the account verification message.)`,
       example: "passwordlol",
       description: "The unencrypted password to use for the new account.",
     },
-    fullName: {
+    full_name: {
       required: true,
       type: "string",
       example: "Frida Kahlo de Rivera",
@@ -37,6 +37,12 @@ the account verification message.)`,
       type: "string",
       example: "5253425243",
       description: "The user's telephone.",
+    },
+    id_office: {
+      type: "number",
+    },
+    id_role: {
+      type: "number",
     },
   },
 
@@ -60,7 +66,9 @@ the account verification message.)`,
     },
   },
 
-  fn: async function ({ email_address, password, fullName, telephone }) {
+
+  fn: async function ({ email_address, password, full_name, telephone, id_office, id_role }) {
+
     var newEmailAddress = email_address.toLowerCase();
 
     // Build up data for the new user record and save it to the database.
@@ -68,10 +76,12 @@ the account verification message.)`,
     var newUserRecord = await User.create(
       _.extend(
         {
-          fullName,
+          full_name,
           email_address: newEmailAddress,
           password: await sails.helpers.passwords.hashPassword(password),
           telephone,
+          id_office,
+          id_role
           // tosAcceptedByIp: this.req.ip,
         }
         // sails.config.custom.verifyEmailAddresses
