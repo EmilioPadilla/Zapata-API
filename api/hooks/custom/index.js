@@ -16,7 +16,7 @@ module.exports = function defineCustomHook(sails) {
 
       // Check Stripe/Sendgrid configuration (for billing and emails).
       var IMPORTANT_STRIPE_CONFIG = ['stripeSecret', 'stripePublishableKey'];
-      var IMPORTANT_SENDGRID_CONFIG = ['sendgridSecret', 'internalEmailAddress'];
+      var IMPORTANT_SENDGRID_CONFIG = ['sendgridSecret', 'internalemail_address'];
       var isMissingStripeConfig = _.difference(IMPORTANT_STRIPE_CONFIG, Object.keys(sails.config.custom)).length > 0;
       var isMissingSendgridConfig = _.difference(IMPORTANT_SENDGRID_CONFIG, Object.keys(sails.config.custom)).length > 0;
 
@@ -50,8 +50,8 @@ module.exports = function defineCustomHook(sails) {
         if (sails.config.custom.sendgridSecret === undefined) {
           problems.push('No `sails.config.custom.sendgridSecret` was configured.');
         }
-        if (sails.config.custom.internalEmailAddress === undefined) {
-          problems.push('No `sails.config.custom.internalEmailAddress` was configured.');
+        if (sails.config.custom.internalemail_address === undefined) {
+          problems.push('No `sails.config.custom.internalemail_address` was configured.');
         }
 
         sails.log.verbose(
@@ -80,7 +80,7 @@ will be disabled and/or hidden in the UI.
 
         sails.helpers.sendgrid.configure({
           secret: sails.config.custom.sendgridSecret,
-          from: sails.config.custom.fromEmailAddress,
+          from: sails.config.custom.fromemail_address,
           fromName: sails.config.custom.fromName,
         });
 
@@ -241,7 +241,7 @@ will be disabled and/or hidden in the UI.
               // Include information on the locals as to whether billing features
               // are enabled for this app, and whether email verification is required.
               res.locals.isBillingEnabled = sails.config.custom.enableBillingFeatures;
-              res.locals.isEmailVerificationRequired = sails.config.custom.verifyEmailAddresses;
+              res.locals.isEmailVerificationRequired = sails.config.custom.verifyemail_addresses;
 
             }//ﬁ
 

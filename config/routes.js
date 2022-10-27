@@ -26,8 +26,8 @@ module.exports.routes = {
 
   
   'GET   /userInfo':  {action:'account/read-user'} 
-  'GET    /api/v1/gps':                                     { action:'gps/GetDevice/get' },
-  'POST   /api/v1/gps':                                    { action:'gps/CreateDevice/create' },
+  //'GET    /api/v1/gps':                                     { action:'gps/GetDevice/get' },
+  //'POST   /api/v1/gps':                                    { action:'gps/CreateDevice/create' },
 
 
 };

@@ -15,7 +15,7 @@ module.exports = {
   exits: {
 
     success: {
-      description: 'The requesting user agent has been successfully logged out.'
+      description: 'User Json is displayed'
     },
 
 
@@ -24,7 +24,7 @@ module.exports = {
 
 
   fn: async function () {
-    const info = await user.find(this.req.session.userId)
+    const info = await User.find(this.req.session.userId)
     
     return info;
 
