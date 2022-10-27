@@ -38,6 +38,12 @@ the account verification message.)`,
       example: "5253425243",
       description: "The user's telephone.",
     },
+    id_office: {
+      type: "number",
+    },
+    id_role: {
+      type: "number",
+    },
   },
 
   exits: {
@@ -60,9 +66,9 @@ the account verification message.)`,
     },
   },
 
+
   fn: async function ({ email_address, password, full_name, telephone }) {
     var newemail_address = email_address.toLowerCase();
-
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)
     var newUserRecord = await User.create(
@@ -72,6 +78,8 @@ the account verification message.)`,
           email_address: newemail_address,
           password: await sails.helpers.passwords.hashPassword(password),
           telephone,
+          id_office,
+          id_role
           // tosAcceptedByIp: this.req.ip,
         }
         // sails.config.custom.verifyemail_addresses

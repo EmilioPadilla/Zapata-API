@@ -24,7 +24,6 @@ module.exports.routes = {
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/observe-my-session':                 { action: 'observe-my-session', hasSocketFeatures: true },
 
-  
   'GET   /userInfo':  {action:'account/read-user'} 
   //'GET    /api/v1/gps':                                     { action:'gps/GetDevice/get' },
   //'POST   /api/v1/gps':                                    { action:'gps/CreateDevice/create' },
