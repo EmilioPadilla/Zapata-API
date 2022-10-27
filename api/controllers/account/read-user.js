@@ -24,7 +24,7 @@ module.exports = {
 
 
   fn: async function () {
-    const info = await User.find(this.req.session.userId)
+    const info = await DefaultUser.find(this.req.session.userId)
     
     return info;
 

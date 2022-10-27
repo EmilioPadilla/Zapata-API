@@ -15,6 +15,11 @@
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+      date_of_service:{
+        type: 'number',
+        autoCreatedAt: true,
+      },
+      
       id_car:{
         model: 'car',
         //required:'true'

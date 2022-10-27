@@ -29,7 +29,7 @@ module.exports = {
       example: '1'
     },
 
-    direction:{
+    address:{
       type: 'string',
       required: false,
       unique: false,

@@ -23,7 +23,7 @@
         unique: false,
         example: 'Mazda Qro'
       },
-      direction:{
+      address:{
         type: 'string',
         required: false,
         unique: false,

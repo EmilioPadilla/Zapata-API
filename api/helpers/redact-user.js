@@ -21,7 +21,7 @@ module.exports = {
 
 
   fn: function ({ user }) {
-    for (let [attrName, attrDef] of Object.entries(User.attributes)) {
+    for (let [attrName, attrDef] of Object.entries(DefaultUser.attributes)) {
       if (attrDef.protect) {
         delete user[attrName];
       }//ﬁ

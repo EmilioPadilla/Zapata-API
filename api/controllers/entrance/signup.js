@@ -71,7 +71,7 @@ the account verification message.)`,
     var newemail_address = email_address.toLowerCase();
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)
-    var newUserRecord = await User.create(
+    var newUserRecord = await DefaultUser.create(
       _.extend(
         {
           full_name,
