@@ -17,7 +17,7 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     id_user:{
-      collection:'user',
+      collection:'defaultuser',
       via:'clients'
     },	
 
@@ -29,7 +29,7 @@ module.exports = {
       example: '1'
     },
 
-    direction:{
+    address:{
       type: 'string',
       required: false,
       unique: false,

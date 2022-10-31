@@ -1,0 +1,52 @@
+INSERT INTO BRAND VALUES
+	(1,'Mazda');
+
+INSERT INTO GPS VALUES
+	(1,'CX31-1');
+
+INSERT INTO USERROLE VALUES
+	(1, 'admin'),
+	(2, 'vendedor'),
+	(3, 'cliente');
+
+INSERT INTO PERMIT VALUES
+	(1,'crear','Habilidad para crear nuevo usuario');
+
+INSERT INTO OFFICE VALUES
+	(1, 'Mazda Quéretaro', 'Blvd. Bernardo Quintana 588, San Pedrito Peñuelas I', 'Quéretaro', 'Querétaro');
+
+INSERT INTO SERVICE VALUES
+	(1);
+
+INSERT INTO TYPE VALUES
+	(1,'rodamiento');
+
+INSERT INTO MODEL VALUES
+	(1, 'CX3', 2002, 1);
+
+INSERT INTO DEFAULTUSER VALUES
+	(1, 'Juanchito Pistolas Ramos', 'pistolas1@gmail.com', 1231232131, '$2a$10$JnT78PhVWjXTtLuDhIV/8ePoNUFbfTVNK7tl1ZLByG.vZBGC22Ck2', 2, 1),
+	(2, 'Pepito Pistolas Ramos', 'pistolas2@gmail.com', 1231232131, '$2a$10$JnT78PhVWjXTtLuDhIV/8ePoNUFbfTVNK7tl1ZLByG.vZBGC22Ck2', 3, 1);
+
+INSERT INTO EMPLOYEE VALUES
+	(1);
+	
+INSERT INTO SELLER VALUES
+	(1);
+
+INSERT INTO CLIENT VALUES
+	('2001-09-28', 'Psicometria 113, Tecnologico', '2012-09-28', 1, 2);
+
+
+
+INSERT INTO CAR VALUES
+	(1, '10000', '10001', DEFAULT, 1,'CUATRO PUERTAS, RAYONES EN CAJUELA, BOLSAS DE AIRE', '2001-09-28', '2001-09-28', '2001-09-28', DEFAULT, 2, 1);
+
+INSERT INTO CAR_HAS_SERVICE VALUES
+	(1, 1, '2001-09-28');
+
+INSERT INTO SERVICE_HAS_TYPE VALUES
+	(1, 1);
+
+INSERT INTO ROLE_HAS_PERMIT VALUES
+	(1, 1, '2001-09-28 00:00', '2001-09-28 00:00');

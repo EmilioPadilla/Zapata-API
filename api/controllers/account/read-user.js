@@ -1,4 +1,4 @@
-const user = require("../../models/user");
+const user = require("../../models/DefaultUser");
 
 module.exports = {
 
@@ -24,7 +24,7 @@ module.exports = {
 
 
   fn: async function () {
-    const info = await User.find(this.req.session.userId)
+    const info = await DefaultUser.find(this.req.session.userId)
     
     return info;
 

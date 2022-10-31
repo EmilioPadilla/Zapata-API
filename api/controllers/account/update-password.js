@@ -24,7 +24,7 @@ module.exports = {
     var hashed = await sails.helpers.passwords.hashPassword(password);
 
     // Update the record for the logged-in User.
-    await User.updateOne({ id: this.req.me.id })
+    await DefaultUser.updateOne({ id: this.req.me.id })
     .set({
       password: hashed
     });

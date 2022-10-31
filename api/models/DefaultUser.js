@@ -57,7 +57,7 @@ module.exports = {
     },
 
     id_role: {
-      collection:'role',
+      collection:'userrole',
       via:'users'
     },
     clients:{
