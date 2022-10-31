@@ -17,7 +17,7 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     id_user:{
-      collection:'user',
+      collection:'defaultuser',
       via:'clients'
     },	
 

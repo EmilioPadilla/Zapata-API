@@ -17,7 +17,7 @@
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
       id_role:{
-        model: 'role',
+        model: 'userrole',
         //required: 'true'
       },
       id_permit:{

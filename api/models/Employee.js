@@ -17,7 +17,7 @@
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
       id_user:{
-        collection:'user',
+        collection:'defaultuser',
         via:'employees'
       },
 

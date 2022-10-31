@@ -67,7 +67,7 @@ the account verification message.)`,
   },
 
 
-  fn: async function ({ email_address, password, full_name, telephone }) {
+  fn: async function ({ email_address, password, full_name, telephone, id_office, id_role }) {
     var newemail_address = email_address.toLowerCase();
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)

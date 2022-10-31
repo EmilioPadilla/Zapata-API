@@ -29,7 +29,7 @@
         example: 'Se le otroga al usuario el permiso de editar usuario'
       },
       id_role:{
-        collection:'role',
+        collection:'userrole',
         via:'id_permit',
         through: 'rolehaspermit'
       }

@@ -42,7 +42,7 @@
         example: 'Qro'
       },
       users:{
-        model:'user'
+        model:'defaultuser'
       }
     },
   };

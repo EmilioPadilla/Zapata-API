@@ -24,7 +24,7 @@
         example: 'administrador'
       },
       users:{
-        model:'user'
+        model:'defaultuser'
       },
       id_permit:{
         collection:'permit',
