@@ -9,7 +9,7 @@ module.exports = {
 
   inputs: {
 
-    emailAddress: {
+    email_address: {
       description: 'The email address of the alleged user who wants to recover their password.',
       example: 'rydahl@example.com',
       type: 'string',
@@ -28,11 +28,11 @@ module.exports = {
   },
 
 
-  fn: async function ({emailAddress}) {
+  fn: async function ({email_address}) {
 
     // Find the record for this User.
     // (Even if no such user exists, pretend it worked to discourage sniffing.)
-    var userRecord = await User.findOne({ emailAddress });
+    var userRecord = await User.findOne({ email_address });
     if (!userRecord) {
       return;
     }//•
@@ -51,11 +51,11 @@ module.exports = {
 
     // Send recovery email
     await sails.helpers.sendTemplateEmail.with({
-      to: emailAddress,
+      to: email_address,
       subject: 'Password reset instructions',
       template: 'email-reset-password',
       templateData: {
-        fullName: userRecord.fullName,
+        full_name: userRecord.full_name,
         token: token
       }
     });

@@ -54,7 +54,7 @@ the account verification message.)`,
     invalid: {
       responseType: "badRequest",
       description:
-        "The provided fullName, password and/or email address are invalid.",
+        "The provided full_name, password and/or email address are invalid.",
       extendedDescription:
         "If this request was sent from a graphical user interface, the request " +
         "parameters should have been validated/coerced _before_ they were sent.",
@@ -66,23 +66,23 @@ the account verification message.)`,
     },
   },
 
-  fn: async function ({ email_address, password, full_name, telephone, id_office, id_role }) {
-    var newEmailAddress = email_address.toLowerCase();
 
+  fn: async function ({ email_address, password, full_name, telephone }) {
+    var newemail_address = email_address.toLowerCase();
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)
     var newUserRecord = await User.create(
       _.extend(
         {
           full_name,
-          email_address: newEmailAddress,
+          email_address: newemail_address,
           password: await sails.helpers.passwords.hashPassword(password),
           telephone,
           id_office,
           id_role
           // tosAcceptedByIp: this.req.ip,
         }
-        // sails.config.custom.verifyEmailAddresses
+        // sails.config.custom.verifyemail_addresses
         //   ? {
         //       emailProofToken: await sails.helpers.strings.random(
         //         "url-friendly"

@@ -77,10 +77,10 @@ module.exports = Object.assign({}, PRODUCTION_CONFIG, {
     // ||  (or use system env var: `sails_custom__baseUrl`)
     //--------------------------------------------------------------------------
 
-    internalEmailAddress: 'support+staging@example.com',
+    internalemail_address: 'support+staging@example.com',
     //--------------------------------------------------------------------------
     // /\  Hard-code the email address that should receive support/contact form
-    // ||  messages in staging (or use `sails_custom__internalEmailAddress`)
+    // ||  messages in staging (or use `sails_custom__internalemail_address`)
     //--------------------------------------------------------------------------
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
